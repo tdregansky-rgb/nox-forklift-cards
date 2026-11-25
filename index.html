@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Nox Metals · Operator Permit</title>
+<style>
+  :root{--navy:#0B1F33;--navy2:#13314f;--gold:#F2B705;--ink:#14202b;--mute:#5d6b78;--line:#e3e8ee;
+        --ok:#127a3a;--okbg:#e3f5e9;--bad:#b3261e;--badbg:#fde7e6;--warn:#9a6700;--warnbg:#fff4cc;--miss:#b45309;--missbg:#ffedd5;}
+  *{box-sizing:border-box}
+  body{margin:0;background:#eef2f6;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Helvetica,Arial,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+  .wrap{max-width:460px;margin:0 auto;padding:16px 14px 40px}
+  .card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 10px 30px rgba(11,31,51,.14),0 2px 6px rgba(11,31,51,.08)}
+  .hdr{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);color:#fff;padding:18px 20px 16px;position:relative}
+  .hdr:after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;
+     background:repeating-linear-gradient(-45deg,var(--gold) 0 14px,#111 14px 28px)}
+  .brand{display:flex;align-items:center;gap:10px}
+  .mark{width:38px;height:38px;border-radius:9px;background:var(--gold);color:var(--navy);display:grid;place-items:center;font-weight:900;font-size:20px;letter-spacing:-1px}
+  .brand b{font-size:19px;letter-spacing:3px;font-weight:800}
+  .brand small{display:block;font-size:11px;opacity:.75;letter-spacing:.4px;margin-top:2px}
+  .title{margin-top:14px;font-size:12px;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold);font-weight:700}
+  .sub{font-size:12px;opacity:.75;margin-top:2px;padding-bottom:6px}
+  .who{display:flex;gap:14px;align-items:center;padding:18px 20px 6px}
+  .avatar{width:64px;height:64px;border-radius:14px;background:#e9eef4;color:var(--navy);display:grid;place-items:center;font-weight:800;font-size:22px}
+  .name{font-size:23px;font-weight:800;line-height:1.15}
+  .opid{font-size:13px;color:var(--mute);margin-top:3px}
+  .badge{margin:14px 20px 4px;border-radius:14px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between}
+  .badge .big{font-size:30px;font-weight:900;letter-spacing:1.5px}
+  .badge .meta{text-align:right;font-size:12px;font-weight:600;line-height:1.35}
+  .b-ok{background:var(--okbg);color:var(--ok);border:2px solid #9fd8b2}
+  .b-bad{background:var(--badbg);color:var(--bad);border:2px solid #f3aaa5}
+  .b-none{background:#eef1f4;color:#46525e;border:2px solid #cfd6dd}
+  .warnbar{margin:8px 20px 0;padding:9px 12px;border-radius:10px;font-size:12.5px;font-weight:600}
+  .w-amber{background:var(--warnbg);color:var(--warn)}
+  .w-orange{background:var(--missbg);color:var(--miss)}
+  .live{display:flex;align-items:center;gap:7px;font-size:11.5px;color:var(--mute);margin:10px 20px 0}
+  .dot{width:8px;height:8px;border-radius:50%;background:#22a355;box-shadow:0 0 0 0 rgba(34,163,85,.6);animation:p 1.6s infinite}
+  @keyframes p{0%{box-shadow:0 0 0 0 rgba(34,163,85,.55)}70%{box-shadow:0 0 0 8px rgba(34,163,85,0)}100%{box-shadow:0 0 0 0 rgba(34,163,85,0)}}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);margin:16px 20px 0;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .f{background:#fff;padding:10px 12px}
+  .f.wide{grid-column:1/-1}
+  .k{font-size:10.5px;text-transform:uppercase;letter-spacing:.9px;color:var(--mute);font-weight:700}
+  .v{font-size:14.5px;font-weight:650;margin-top:3px;line-height:1.3}
+  .sec{margin:22px 20px 0}
+  .sec h3{font-size:12px;text-transform:uppercase;letter-spacing:1.2px;color:var(--navy);margin:0 0 8px;display:flex;align-items:center;gap:8px}
+  .sec h3:after{content:"";flex:1;height:1px;background:var(--line)}
+  .ln{border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:8px}
+  .ln .top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+  .ln .it{font-weight:700;font-size:14px;line-height:1.3}
+  .chip{flex:none;font-size:10.5px;font-weight:800;letter-spacing:.5px;padding:4px 8px;border-radius:999px;white-space:nowrap}
+  .c-ok{background:var(--okbg);color:var(--ok)} .c-bad{background:var(--badbg);color:var(--bad)}
+  .c-warn{background:var(--warnbg);color:var(--warn)} .c-miss{background:var(--missbg);color:var(--miss)}
+  .dl{display:grid;grid-template-columns:repeat(2,1fr);gap:4px 12px;margin-top:8px;font-size:12px;color:var(--mute)}
+  .dl span b{color:var(--ink);font-weight:650}
+  .nr{color:var(--miss)!important;font-weight:800!important}
+  .foot{margin:22px 20px 20px;font-size:11.5px;color:var(--mute);line-height:1.5;border-top:1px solid var(--line);padding-top:12px}
+  .msg{padding:36px 22px;text-align:center}
+  .msg h2{margin:0 0 8px;font-size:20px} .msg p{color:var(--mute);font-size:14px;margin:0;line-height:1.5}
+  .actions{margin:14px 0 0;display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+  .btn{display:inline-block;background:var(--navy);color:#fff;text-decoration:none;font-weight:700;font-size:14px;letter-spacing:.2px;
+       padding:11px 16px;border-radius:10px;border:0;cursor:pointer;font-family:inherit}
+  .btn:hover{background:var(--navy2)}
+  .btn-ghost{background:#fff;color:var(--navy);border:1px solid var(--navy)}
+  .hint{font-size:12px;color:var(--mute);text-align:center;margin:10px 0 0}
+
+  /* CR80 wallet card: 3.375in × 2.125in, front and back */
+  .wallet-wrap{max-width:3.7in;margin:0 auto;padding:18px 12px 32px}
+  .wallet{width:3.375in;height:2.125in;background:#fff;border:1px solid #0B1F33;border-radius:8px;overflow:hidden;
+          box-shadow:0 6px 18px rgba(11,31,51,.12);margin:0 auto 18px;position:relative;page-break-after:always;break-after:page}
+  .wallet:last-of-type{page-break-after:auto;break-after:auto;margin-bottom:0}
+  .w-front{display:grid;grid-template-columns:1fr 0.95in;height:100%}
+  .w-main{padding:0;display:flex;flex-direction:column;min-width:0}
+  .w-hdr{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);color:#fff;padding:7px 9px 6px;position:relative}
+  .w-hdr:after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+     background:repeating-linear-gradient(-45deg,var(--gold) 0 8px,#111 8px 16px)}
+  .w-brand{display:flex;align-items:center;gap:6px}
+  .w-mark{width:22px;height:22px;border-radius:5px;background:var(--gold);color:var(--navy);display:grid;place-items:center;font-weight:900;font-size:13px}
+  .w-brand b{font-size:11px;letter-spacing:1.6px;font-weight:800}
+  .w-brand small{display:block;font-size:7px;opacity:.8;letter-spacing:.2px;margin-top:1px}
+  .w-body{padding:7px 9px 8px;flex:1;display:flex;flex-direction:column;gap:3px}
+  .w-name{font-size:14px;font-weight:800;line-height:1.15;color:var(--navy)}
+  .w-id{font-size:8px;color:var(--mute);font-weight:650}
+  .w-status{display:inline-block;font-size:8px;font-weight:800;letter-spacing:.6px;padding:2px 6px;border-radius:999px;margin-top:1px;align-self:flex-start}
+  .w-ok{background:var(--okbg);color:var(--ok)} .w-exp{background:var(--badbg);color:var(--bad)} .w-no{background:#eef1f4;color:#46525e}
+  .w-trucks{font-size:8.5px;line-height:1.3;font-weight:650}
+  .w-dates{font-size:8px;font-weight:700;margin-top:auto}
+  .w-qrcol{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:8px 7px 8px 0;border-left:1px solid var(--line)}
+  .w-qrcol img{width:0.82in;height:0.82in;display:block}
+  .w-qrcol span{font-size:6.5px;color:var(--mute);text-align:center;line-height:1.2}
+  .w-back{padding:8px 10px;height:100%;display:flex;flex-direction:column;gap:4px}
+  .w-row{display:grid;grid-template-columns:0.95in 1fr;gap:6px;font-size:8px;line-height:1.3}
+  .w-k{text-transform:uppercase;letter-spacing:.5px;color:var(--mute);font-weight:700;font-size:7px}
+  .w-v{font-weight:650}
+  .w-legal{margin-top:auto;font-size:6.5px;color:var(--mute);line-height:1.35;border-top:1px solid var(--line);padding-top:5px}
+
+  @page{size:3.375in 2.125in;margin:0}
+  @media print{
+    .no-print{display:none!important}
+    body{background:#fff}
+    .wallet-wrap{padding:0;max-width:none}
+    .wallet{box-shadow:none;margin:0;border-radius:0;border:0}
+  }
+</style>
+</head>
+<body>
+<div id="root"><div class="wrap"><div class="card"><div class="msg"><h2>Loading permit…</h2><p>Checking live Nox Metals HSE records.</p></div></div></div></div>
+<script>
+// Published-to-web CSV URL of the "Card Data" tab (File > Share > Publish to web > Card Data > CSV).
+const PUBLISHED_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT26RRfzjWsTNrfm_5eK2xFOl07iu3BWIeNuGVm4i630mJKeZW8rl7pwUJeOBxl-qaI3M_4M9CdOEXp/pub?gid=518597773&single=true&output=csv';
+
+(function(){
+  const GROUP_ORDER = ['Forklift', 'Aerial lifts (MEWP)', 'Cranes', 'Saws', 'Safety training', 'Emergency response'];
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const root = document.getElementById('root');
+  const params = new URLSearchParams(location.search);
+  const id = String(params.get('id') || '').trim().toUpperCase();
+  const printMode = String(params.get('print') || '').trim().toLowerCase() === 'wallet';
+  const csvUrl = params.get('csv') || PUBLISHED_CSV_URL;
+
+  const head = (addr) => '<div class="hdr"><div class="brand"><div class="mark">N</div><div><b>NOX METALS</b><small>' + esc(addr || 'Ferndale, Michigan') + '</small></div></div>' +
+    '<div class="title">Industrial Truck Operator Permit</div><div class="sub">MIOSHA Part 21 · R 408.12154 &nbsp;|&nbsp; OSHA 29 CFR 1910.178(l)</div></div>';
+
+  function showMsg(title, body, addr, auth, checkedAt) {
+    root.innerHTML = '<div class="wrap"><div class="card">' + head(addr) +
+      '<div class="msg"><h2>' + esc(title) + '</h2><p>' + esc(body) + '</p></div>' +
+      (checkedAt ? '<div class="foot">Checked ' + esc(checkedAt) + (auth ? ' · Issued by ' + esc(auth) : '') + '</div>' : '') +
+      '</div></div>';
+  }
+
+  function parseCsv(text) {
+    const rows = [];
+    let row = [], cur = '', inQ = false;
+    for (let i = 0; i < text.length; i++) {
+      const ch = text[i];
+      if (inQ) {
+        if (ch === '"' && text[i + 1] === '"') { cur += '"'; i++; }
+        else if (ch === '"') inQ = false;
+        else cur += ch;
+      } else {
+        if (ch === '"') inQ = true;
+        else if (ch === ',') { row.push(cur); cur = ''; }
+        else if (ch === '\r') { if (text[i + 1] === '\n') i++; row.push(cur); rows.push(row); row = []; cur = ''; }
+        else if (ch === '\n') { row.push(cur); rows.push(row); row = []; cur = ''; }
+        else cur += ch;
+      }
+    }
+    if (cur.length || row.length) { row.push(cur); rows.push(row); }
+    return rows;
+  }
+
+  function parseMDY(s) {
+    const m = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/.exec(String(s || '').trim());
+    if (!m) return null;
+    return Date.UTC(+m[3], +m[1] - 1, +m[2]);
+  }
+  function todayDetroitUtc() {
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'America/Detroit', year: 'numeric', month: '2-digit', day: '2-digit'
+    }).formatToParts(new Date());
+    const g = t => +parts.find(p => p.type === t).value;
+    return Date.UTC(g('year'), g('month') - 1, g('day'));
+  }
+  function nowDetroitLabel() {
+    return new Date().toLocaleString('en-US', {
+      timeZone: 'America/Detroit', month: '2-digit', day: '2-digit', year: 'numeric',
+      hour: 'numeric', minute: '2-digit'
+    }) + ' ET';
+  }
+  function daysBetweenUtc(a, b) {
+    return (a != null && b != null) ? Math.round((b - a) / 86400000) : null;
+  }
+
+  function render(d) {
+    if (d.state === 'NOID' || d.state === 'NOTFOUND') {
+      showMsg(
+        d.state === 'NOID' ? "Scan an operator's QR code" : 'Permit not found',
+        d.state === 'NOID'
+          ? 'Each Nox Metals operator has a personal QR code on their hard hat or badge.'
+          : 'This code is not valid or has been replaced. The operator may not drive until Nox HSE confirms a current permit.',
+        d.address, d.authority, d.checkedAt
+      );
+      return;
+    }
+
+    if (printMode) {
+      document.title = 'Nox Metals · Wallet card';
+      const stClass = d.state === 'CURRENT' ? 'w-ok' : d.state === 'EXPIRED' ? 'w-exp' : 'w-no';
+      const stLabel = d.state === 'NOCARD' ? 'NO PERMIT' : esc(d.state);
+      const trucks = (d.trucks && d.trucks.length) ? d.trucks.map(esc).join(', ') : 'None';
+      const qr = d.qrUrl
+        ? '<img src="' + esc(d.qrUrl) + '" alt="QR code for the live permit card" width="79" height="79">'
+        : '';
+      const front = '<div class="wallet" id="wallet-front">' +
+        '<div class="w-front"><div class="w-main"><div class="w-hdr"><div class="w-brand"><div class="w-mark">N</div><div><b>NOX METALS</b><small>Industrial truck operator permit</small></div></div></div>' +
+        '<div class="w-body"><div class="w-name">' + esc(d.name) + '</div>' +
+        '<div class="w-id">Operator ID ' + esc(d.opId) + '</div>' +
+        '<span class="w-status ' + stClass + '">' + stLabel + '</span>' +
+        '<div class="w-trucks"><b>Authorized trucks:</b> ' + trucks + '</div>' +
+        '<div class="w-dates">Issued ' + esc(d.issued || '—') + '  ·  Expires ' + esc(d.expires || '—') + '</div>' +
+        '</div></div>' +
+        '<div class="w-qrcol">' + qr + '<span>Scan for the<br>live full card</span></div></div></div>';
+      const back = '<div class="wallet" id="wallet-back">' +
+        '<div class="w-back">' +
+        '<div class="w-row"><div class="w-k">Firm</div><div class="w-v">' + esc(d.firm) + '<br>' + esc(d.address || '') + '</div></div>' +
+        '<div class="w-row"><div class="w-k">Issuing authority</div><div class="w-v">' + esc(d.authority || '—') + '</div></div>' +
+        '<div class="w-row"><div class="w-k">Forklift evaluator</div><div class="w-v">' + esc(d.evaluators || '—') + '</div></div>' +
+        '<div class="w-row"><div class="w-k">Restrictions</div><div class="w-v">' + esc(d.restrictions || 'None') + '</div></div>' +
+        (d.knowledgeTest ? '<div class="w-row"><div class="w-k">Knowledge test</div><div class="w-v">Passed ' + esc(d.knowledgeTest) + '</div></div>' : '') +
+        '<div class="w-legal">MIOSHA Part 21 R 408.12154 · OSHA 29 CFR 1910.178(l). Valid only with ' + esc(d.firm) +
+        ' and for no more than 3 years from issue. Print at 100% scale (do not fit to page). Front is page 1, back is page 2. CR80 (3.375 × 2.125 in).</div>' +
+        '</div></div>';
+      root.innerHTML = '<div class="wallet-wrap">' +
+        '<div class="actions no-print">' +
+          '<a class="btn btn-ghost" href="' + esc(d.cardUrl) + '">Back to full card</a>' +
+          '<button type="button" class="btn" id="printBtn">Print wallet card</button>' +
+        '</div>' +
+        '<p class="hint no-print">Print at 100% scale (actual size). Front prints on page 1, back on page 2. Card size is CR80: 3.375 × 2.125 in.</p>' +
+        front + back + '</div>';
+      const go = () => window.print();
+      const btn = document.getElementById('printBtn');
+      if (btn) btn.addEventListener('click', go);
+      setTimeout(go, 400);
+      return;
+    }
+
+    const initials = String(d.name || '').split(/\s+/).map(w => w[0] || '').slice(0, 2).join('').toUpperCase();
+    const pic = '<div class="avatar">' + esc(initials) + '</div>';
+    let badge;
+    if (d.state === 'CURRENT') badge = '<div class="badge b-ok"><div class="big">CURRENT</div><div class="meta">Valid through<br>' + esc(d.expires) + '</div></div>';
+    else if (d.state === 'EXPIRED') badge = '<div class="badge b-bad"><div class="big">EXPIRED</div><div class="meta">Expired<br>' + esc(d.expires) + '<br>Do not operate</div></div>';
+    else badge = '<div class="badge b-none"><div class="big">NO PERMIT</div><div class="meta">No permit issued<br>Do not operate</div></div>';
+    let warns = '';
+    if (d.state === 'CURRENT' && d.daysLeft != null && d.daysLeft <= 30) warns += '<div class="warnbar w-amber">Re-evaluation due: permit expires in ' + d.daysLeft + ' day' + (d.daysLeft === 1 ? '' : 's') + '.</div>';
+    if (d.missingEvaluator > 0) warns += '<div class="warnbar w-orange">' + d.missingEvaluator + ' equipment line' + (d.missingEvaluator === 1 ? ' has' : 's have') + ' no evaluator on record. Nox HSE is completing the record.</div>';
+    const f = (k, v, wide) => '<div class="f' + (wide ? ' wide' : '') + '"><div class="k">' + k + '</div><div class="v">' + v + '</div></div>';
+    const trucks = d.trucks.length ? d.trucks.map(esc).join('<br>') : 'None';
+    const grid = '<div class="grid">' +
+      f('Firm', esc(d.firm)) + f('Operator ID', esc(d.opId)) +
+      f('Authorized trucks', trucks, true) +
+      f('Restrictions', esc(d.restrictions || 'None'), true) +
+      f('Date issued', esc(d.issued || '—')) + f('Date expiring', esc(d.expires || '—')) +
+      f('Issuing authority', esc(d.authority), true) +
+      (d.knowledgeTest ? f('Knowledge test passed', esc(d.knowledgeTest), true) : '') + '</div>';
+    const chip = s => s === 'CURRENT' ? '<span class="chip c-ok">CURRENT</span>' : s === 'NO EXPIRY' ? '<span class="chip c-ok">NO EXPIRY</span>' :
+      s === 'EXPIRED' ? '<span class="chip c-bad">EXPIRED</span>' : s === 'EXPIRING' ? '<span class="chip c-warn">DUE ≤30 DAYS</span>' :
+      '<span class="chip c-miss">EVALUATOR NOT RECORDED</span>';
+    const groups = {}; d.lines.forEach(l => (groups[l.group] = groups[l.group] || []).push(l));
+    let secs = '';
+    Object.keys(groups).forEach(g => {
+      secs += '<div class="sec"><h3>' + esc(g) + '</h3>' + groups[g].map(l =>
+        '<div class="ln"><div class="top"><div class="it">' + esc(l.item) + '</div>' + chip(l.status) + '</div><div class="dl">' +
+        '<span>Trainer <b>' + esc(l.trainer || '—') + '</b></span>' +
+        '<span>Trained <b>' + esc(l.trained || '—') + '</b></span>' +
+        '<span>Evaluated <b>' + esc(l.evaluated || '—') + '</b></span>' +
+        '<span>Evaluator ' + (l.evaluator ? '<b>' + esc(l.evaluator) + '</b>' : (l.status === 'MISSING EVALUATOR' ? '<b class="nr">Not recorded</b>' : '<b>—</b>')) + '</span>' +
+        '<span>Re-evaluate by <b>' + esc(l.reeval || 'No expiry') + '</b></span>' +
+        '</div></div>').join('') + '</div>';
+    });
+    if (!secs) secs = '<div class="sec"><h3>Equipment &amp; training</h3><div class="ln">No authorizations on file.</div></div>';
+
+    root.innerHTML = '<div class="wrap"><div class="card" id="card">' + head(d.address) +
+      '<div class="who">' + pic + '<div><div class="name">' + esc(d.name) + '</div><div class="opid">Operator ID ' + esc(d.opId) + ' · ' + esc(d.firm) + '</div></div></div>' +
+      badge + warns +
+      '<div class="live"><span class="dot"></span><span>Live record · checked <span id="clk"></span></span></div>' +
+      grid + secs +
+      '<div class="foot">This permit is valid only with ' + esc(d.firm) + ' and for no more than 3 years from issue (MIOSHA R 408.12154(5)). ' +
+      'Training and practical evaluation certified per OSHA 29 CFR 1910.178(l)(6). Read live from Nox Metals HSE records at ' + esc(d.checkedAt) + '.' +
+      '<br>Questions: ' + esc(d.authority) + ' · ' + esc(d.address) + '</div></div>' +
+      '<div class="actions no-print"><a class="btn" href="' + esc(d.walletPrintUrl) + '" target="_blank" rel="noopener">Print wallet card</a></div>' +
+      '<p class="hint no-print">Opens a CR80 wallet-size card (3.375 × 2.125 in), front and back, ready to print.</p></div>';
+
+    const clk = document.getElementById('clk');
+    if (clk) {
+      const tick = () => { clk.textContent = new Date().toLocaleString('en-US', {month:'2-digit',day:'2-digit',year:'numeric',hour:'numeric',minute:'2-digit',second:'2-digit',timeZone:'America/Detroit'}); };
+      tick(); setInterval(tick, 1000);
+    }
+  }
+
+  if (!id) {
+    render({ state: 'NOID', checkedAt: nowDetroitLabel() });
+    return;
+  }
+  if (!csvUrl) {
+    showMsg('Card feed not configured', 'Publish the Card Data tab to the web as CSV and set PUBLISHED_CSV_URL in this page.', '', '', nowDetroitLabel());
+    return;
+  }
+
+  fetch(csvUrl, { cache: 'no-store' })
+    .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
+    .then(text => {
+      const rows = parseCsv(text);
+      let meta = { firm: 'Nox Metals', address: '1350 Jarvis St, Ferndale, MI 48220', authority: 'Therle Dregansky, HSE Manager' };
+      let op = null;
+      const rawLines = [];
+      for (let i = 1; i < rows.length; i++) {
+        const r = rows[i];
+        if (!r || !r.length) continue;
+        if (r[0] === 'META') {
+          meta = { firm: r[1] || meta.firm, address: r[2] || meta.address, authority: r[3] || meta.authority };
+        } else if (r[0] === 'OP' && String(r[1] || '').trim().toUpperCase() === id) {
+          op = r;
+        } else if (r[0] === 'LINE' && String(r[1] || '').trim().toUpperCase() === id) {
+          rawLines.push(r);
+        }
+      }
+      const checkedAt = nowDetroitLabel();
+      if (!op) {
+        render(Object.assign({}, meta, { state: 'NOTFOUND', checkedAt }));
+        return;
+      }
+      const tUtc = todayDetroitUtc();
+      const issued = String(op[5] || '').trim();
+      const expires = String(op[6] || '').trim();
+      const expUtc = parseMDY(expires);
+      const daysLeft = expUtc != null ? daysBetweenUtc(tUtc, expUtc) : null;
+      let state = 'CURRENT';
+      if (!issued) state = 'NOCARD';
+      else if (expUtc != null && expUtc < tUtc) state = 'EXPIRED';
+
+      const lines = rawLines.map(r => {
+        const rawSt = String(r[10] || '').trim();
+        const reeval = String(r[9] || '').trim();
+        const reUtc = parseMDY(reeval);
+        let st = 'CURRENT';
+        if (rawSt === 'MISSING EVALUATOR') st = 'MISSING EVALUATOR';
+        else if (!reeval) st = 'NO EXPIRY';
+        else if (reUtc != null && reUtc < tUtc) st = 'EXPIRED';
+        else if (reUtc != null && daysBetweenUtc(tUtc, reUtc) <= 30) st = 'EXPIRING';
+        return {
+          item: r[3] || '', group: r[4] || '', trainer: r[5] || '',
+          trained: r[6] || '', evaluated: r[7] || '', evaluator: r[8] || '',
+          reeval, status: st
+        };
+      }).sort((a, b) => GROUP_ORDER.indexOf(a.group) - GROUP_ORDER.indexOf(b.group));
+
+      const baseUrl = location.origin + location.pathname;
+      const cardUrl = baseUrl + '?id=' + encodeURIComponent(id) + (params.get('csv') ? '&csv=' + encodeURIComponent(params.get('csv')) : '');
+      const walletPrintUrl = cardUrl + '&print=wallet';
+      const qrTarget = baseUrl + '?id=' + encodeURIComponent(id);
+      const qrUrl = 'https://quickchart.io/qr?size=240&margin=1&ecLevel=M&text=' + encodeURIComponent(qrTarget);
+      const evs = [];
+      lines.filter(l => l.group === 'Forklift').forEach(l => {
+        if (l.evaluator && evs.indexOf(l.evaluator) === -1) evs.push(l.evaluator);
+      });
+
+      render(Object.assign({}, meta, {
+        state, name: op[3] || '', opId: op[2] || '', restrictions: String(op[4] || '').trim(),
+        issued, expires, daysLeft,
+        trucks: lines.filter(l => l.group === 'Forklift').map(l => l.item),
+        missingEvaluator: lines.filter(l => l.status === 'MISSING EVALUATOR').length,
+        knowledgeTest: String(op[7] || '').trim(),
+        token: id, cardUrl, qrUrl, walletPrintUrl,
+        evaluators: evs.join(', '),
+        checkedAt, lines
+      }));
+    })
+    .catch(err => {
+      showMsg('Unable to load permit', 'Could not reach the permit feed (' + err.message + ').', '', '', nowDetroitLabel());
+    });
+})();
+</script>
+</body>
+</html>
